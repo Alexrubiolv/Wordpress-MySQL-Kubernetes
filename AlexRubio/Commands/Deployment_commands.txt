@@ -23,7 +23,7 @@ cat <<EOF >>./kustomization.yaml
     - mysql-deployment.yaml
     - wordpress-deployment.yaml
 EOF
-  
+  az aks kubernetes get-credentials --resource-group TesteKubernetes --name ContagemService
   kubectl apply -k ./
   
   kubectl get secrets
