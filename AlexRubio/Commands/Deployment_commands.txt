@@ -38,4 +38,4 @@ kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterr
 #Dashboard acess 
 kubectl proxy
 #Scaling - Replicas 
-kubectl scale deployment contagem-deployment --replicas=20 
+kubectl scale deployment contagem-deployment --replicas=XX 
