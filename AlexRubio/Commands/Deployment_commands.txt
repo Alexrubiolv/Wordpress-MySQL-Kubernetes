@@ -23,8 +23,11 @@ cat <<EOF >>./kustomization.yaml
     - mysql-deployment.yaml
     - wordpress-deployment.yaml
 EOF
-  az aks kubernetes get-credentials --resource-group TesteKubernetes --name ContagemService
+  
   kubectl apply -k ./
+  # Other way for deployment
+  kubectl create -f /home/alexandre/mysql-deployment.yaml
+  kubectl create -f /home/alexandre/wordpress-deployment.yaml
   
   kubectl get secrets
   
@@ -32,5 +35,7 @@ EOF
 
 #Dashboard
 kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+#Dashboard acess 
+kubectl proxy
 #Scaling - Replicas 
 kubectl scale deployment contagem-deployment --replicas=20 
